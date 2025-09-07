@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 20px;
+            color: #e6e6e6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: #222831;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: #2d4059;
+            color: #e6e6e6;
+            padding: 25px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        .form-container {
+            padding: 30px;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #e6e6e6;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 14px;
+            background: #393e46;
+            color: #e6e6e6;
+            border: 1px solid #2d4059;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        .input-group input:focus {
+            outline: none;
+            border-color: #4a6bff;
+            box-shadow: 0 0 0 2px rgba(74, 107, 255, 0.2);
+        }
+        
+        .validation-rules {
+            background: #2d4059;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #e6e6e6;
+        }
+        
+        .validation-rules ul {
+            list-style: none;
+            padding-left: 5px;
+        }
+        
+        .validation-rules li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .validation-rules li::before {
+            content: "•";
+            color: #4a6bff;
+            font-weight: bold;
+            display: inline-block;
+            width: 20px;
+        }
+        
+        .requirement {
+            color: #ff6b6b;
+            font-size: 14px;
+            margin-top: 5px;
+            min-height: 20px;
+        }
+        
+        .valid {
+            color: #51cf66;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: #4a6bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            background: #3a5be0;
+        }
+        
+        .success-message {
+            text-align: center;
+            color: #51cf66;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Email & Password Validator</h1>
+        </div>
+        
+        <div class="form-container">
+            <form id="validation-form">
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Enter your email" autocomplete="on">
+                    <div class="requirement" id="email-requirement" hidden = "true">Please enter a valid email address</div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Create a strong password">
+                    <div class="requirement" id="password-requirement" hidden="true">Password must meet all requirements</div>
+                    
+                    <div class="validation-rules" hidden="true">
+                        <ul>
+                            <li id="length">At least 8 characters long</li>
+                            <li id="uppercase">Contains uppercase letters</li>
+                            <li id="lowercase">Contains lowercase letters</li>
+                            <li id="number">Contains numbers</li>
+                            <li id="special">Contains special characters</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn" id="submit-btn" >Validate & Submit</button>
+                <div class="success-message" id="success-message" hidden="true">
+                    Validation successful!.
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="file.js"></script>
+</body>
+</html>
